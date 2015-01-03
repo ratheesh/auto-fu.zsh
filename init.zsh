@@ -59,7 +59,8 @@ if [[ $ZSH_VERSION == (<5->|4.<4->|4.3.<10->)* ]]; then
     function zle-line-init () { auto-fu-init }
     zle -N zle-line-init
     zstyle ':auto-fu:highlight' completion fg=white
-    zstyle ':auto-fu:var' postdisplay ''
+    zstyle ':auto-fu:var' postdisplay '
+    --auto-fu--'
     function afu+cancel () {
         afu-clearing-maybe
         ((afu_in_p == 1)) && { afu_in_p=0; BUFFER="$buffer_cur"; }
