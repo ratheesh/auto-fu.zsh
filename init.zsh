@@ -1,11 +1,11 @@
 # precompiled source
 function () {
     local A
-    A=~/.zsh/modules/auto-fu/auto-fu.zsh
+    A=~/.zprezto/modules/auto-fu/auto-fu.zsh
     [[ -e "${A:r}.zwc" ]] && [[ "$A" -ot "${A:r}.zwc" ]] ||
     zsh -c "source $A; auto-fu-zcompile $A ${A:h}" >/dev/null 2>&1
 }
-source ~/.zsh/modules/auto-fu/auto-fu; auto-fu-install
+source ~/.zprezto/modules/auto-fu/auto-fu; auto-fu-install
 
 # initialization and options
 function zle-line-init () { auto-fu-init }
@@ -55,12 +55,12 @@ if [[ $ZSH_VERSION == (<5->|4.<4->|4.3.<10->)* ]]; then
         [[ -e "${A:r}.zwc" ]] && [[ "$A" -ot "${A:r}.zwc" ]] ||
         zsh -c "source $A; auto-fu-zcompile $A ${A:h}" >/dev/null 2>&1
     }
-    source ~/.zsh/modules/auto-fu/auto-fu; auto-fu-install
+    source ~/.zprezto/modules/auto-fu/auto-fu; auto-fu-install
     function zle-line-init () { auto-fu-init }
     zle -N zle-line-init
     zstyle ':auto-fu:highlight' completion fg=white
     zstyle ':auto-fu:var' postdisplay '
-    --auto-fu--'
+    ---auto-fu---'
     function afu+cancel () {
         afu-clearing-maybe
         ((afu_in_p == 1)) && { afu_in_p=0; BUFFER="$buffer_cur"; }
